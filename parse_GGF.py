@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 
 import argparse
+import gff_functions
+
 
 def main():
-    parser = argparse.ArgumentParser(
-        description= "Fasta file Parse"
-    )
-    parser.add_argument("Fasta", help="covid.fasta")
+    parser = argparse.ArgumentParser(description="Parse FASTA and GFF")
+
+    parser.add_argument("fasta")
+    parser.add_argument("gff")
+
     args = parser.parse_args()
+
+    fasta_seq = gff_functions.read_fasta(args.fasta)
+    gff_data = gff_functions.read_gff(args.gff)
+
+    gff_functions.write_output(fasta_seq, gff_data)
+
+
+if __name__ == '__main__':
+    main()
     
-
-    print(f"covid.fasta: {args.fasta}")
-
-    if __name__ == '_main_':
-        main()
-    
-    parser.add_argument("GFF", help="parse_GGF.py")
-
-    from gff_functions import read_fasta, read_gff, write_output
