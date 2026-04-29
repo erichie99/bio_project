@@ -1,8 +1,0 @@
----
-title: "CV"
-output: html_document
----
-
-# Elijah Richardson
-
-[Download My CV](Elijah_Richardson_CV.pdf)
